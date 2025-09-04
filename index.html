@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WissamX - Gaming Community</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- العلامة المائية في الخلفية -->
+    <div class="watermark">WissamX</div>
+    
+    <!-- زر تبديل اللغة -->
+    <div class="language-switcher">
+        <button id="langBtn" onclick="toggleLanguage()">
+            <span id="langText">EN</span>
+        </button>
+    </div>
+
+    <!-- القسم العلوي -->
+    <header class="main-header">
+        <h1 class="main-title" id="mainTitle">WissamX</h1>
+        <p class="subtitle" id="subtitle">مجتمع الألعاب والمرح</p>
+    </header>
+
+    <!-- الأزرار الرئيسية -->
+    <section class="main-buttons">
+        <div class="button-container">
+            <!-- زر الديسكورد -->
+            <div class="button-wrapper left-button">
+                <button class="main-btn discord-btn" id="discordBtn" onclick="openDiscord()">
+                    <div class="btn-icon">🎮</div>
+                    <div class="btn-content">
+                        <h3 id="discordTitle">سيرفر الديسكورد</h3>
+                        <p id="discordDesc">انضم إلى مجتمعنا النشط واستمتع بالألعاب الجماعية</p>
+                    </div>
+                </button>
+            </div>
+
+            <!-- زر الأحداث -->
+            <div class="button-wrapper right-button">
+                <button class="main-btn events-btn" id="eventsBtn" onclick="toggleEvents()">
+                    <div class="btn-icon">🏆</div>
+                    <div class="btn-content">
+                        <h3 id="eventsTitle">الأحداث</h3>
+                        <p id="eventsDesc">آخر حدث: بطولة UNO - الساعة 17:00 UTC</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قائمة الأحداث المنبثقة -->
+    <div class="events-modal" id="eventsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="eventsModalTitle">الأحداث والبطولات</h2>
+                <button class="close-btn" onclick="toggleEvents()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="events-section">
+                    <h3 id="upcomingEventsTitle">الأحداث القادمة</h3>
+                    <div class="event-item">
+                        <div class="event-date">25 أغسطس 2025</div>
+                        <div class="event-details">
+                            <h4>بطولة Quake 3 Arena</h4>
+                            <p>الساعة 19:00 UTC - مباراة 1 ضد 1</p>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">28 أغسطس 2025</div>
+                        <div class="event-details">
+                            <h4>ليلة الألعاب الجماعية</h4>
+                            <p>الساعة 20:00 UTC - ألعاب متنوعة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="events-section">
+                    <h3 id="pastEventsTitle">الأحداث السابقة</h3>
+                    <div class="event-item past-event">
+                        <div class="event-date">20 أغسطس 2025</div>
+                        <div class="event-details">
+                            <h4>بطولة UNO</h4>
+                            <p>الساعة 17:00 UTC - الفائز: Player123</p>
+                        </div>
+                    </div>
+                    <div class="event-item past-event">
+                        <div class="event-date">15 أغسطس 2025</div>
+                        <div class="event-details">
+                            <h4>مباراة Quake 3 الودية</h4>
+                            <p>الساعة 18:30 UTC - مشاركة 12 لاعب</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الخط الفاصل -->
+    <hr class="section-divider">
+
+    <!-- قسم Quake 3 Arena -->
+    <section class="quake-section">
+        <div class="quake-header">
+            <img src="quake3_logo.png" alt="Quake 3 Arena Logo" class="quake-logo">
+            <h2 class="quake-title" id="quakeTitle">Quake 3 Arena</h2>
+        </div>
+        
+        <div class="server-status">
+            <h3 id="serverStatusTitle">حالة السيرفرات</h3>
+            <div class="server-info">
+                <div class="server-item">
+                    <div class="server-details">
+                        <h4 id="serverName">WissamX Arena Server</h4>
+                        <div class="server-ip">
+                            <span id="serverIpLabel">عنوان السيرفر:</span>
+                            <code id="serverIp">192.168.1.100:27960</code>
+                            <button class="copy-btn" onclick="copyServerIP()" id="copyBtn">نسخ</button>
+                        </div>
+                        <div class="server-stats">
+                            <span class="status online" id="serverStatus">متصل</span>
+                            <span class="players" id="playerCount">اللاعبون: 8/16</span>
+                            <span class="map" id="currentMap">الخريطة: dm17</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="copyright">
+                <p id="copyrightText">&copy; 2025 WissamX. جميع الحقوق محفوظة.</p>
+            </div>
+            <div class="contact-links">
+                <a href="https://wa.me/1234567890" target="_blank" class="contact-link whatsapp">
+                    <span class="contact-icon">📱</span>
+                    <span id="whatsappText">واتساب</span>
+                </a>
+                <a href="mailto:contact@wissamx.com" class="contact-link email">
+                    <span class="contact-icon">✉️</span>
+                    <span id="emailText">البريد الإلكتروني</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
