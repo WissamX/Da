@@ -1,5 +1,5 @@
 // متغيرات عامة
-let currentLanguage = 'ar';
+let currentLanguage = 'en';
 let translations = {};
 
 // تحميل الترجمات عند تحميل الصفحة
@@ -121,7 +121,7 @@ async function copyServerIP() {
 // فتح رابط الديسكورد
 function openDiscord() {
     // يمكن تغيير هذا الرابط لاحقاً
-    const discordInviteLink = 'https://discord.gg/your-server-invite';
+    const discordInviteLink = 'https://discord.gg/acK6ZTX7Vj';
     window.open(discordInviteLink, '_blank');
 }
 
